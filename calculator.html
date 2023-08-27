@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <style>
+    
+ body{
+ background:orange;
+}
+
+.cal {
+text-align:center;
+margin:20px 350px;
+padding-top: 15px;
+background-color:navajowhite  ;
+border-radius: 50px;
+}
+button {
+margin-left: 20px;
+width:80px;
+}
+input{
+background-color: antiquewhite;
+border-style:solid ;
+border-radius:10px ;
+border-color: black;
+width: 280px;
+height:30px;
+}
+button{
+background-color: green;
+color:white;
+height:50px;
+font-weight: bold;
+border-style: solid;
+border-radius: 10px;
+border-color:antiquewhite;
+
+}
+</style>
+</head>
+<body>
+<div class="cal">
+<div><input type="text" id="display" readonly>
+</div></br>
+<div>
+<button onclick="cleardisplay()">CLEAR</button>
+<button onclick="addtodisplay('%')">%</button>
+<button onclick="addtodisplay('X')">DEL</button>
+<button onclick="addtodisplay('/')">/</button>
+</div></br>
+<div>
+<button onclick="addtodisplay('7')">7</button>
+<button onclick="addtodisplay('8')">8</button>
+<button onclick="addtodisplay('9')">9</button>
+<button onclick="addtodisplay('*')">x</button>
+</div></br>
+<div>
+<button onclick="addtodisplay('4')">4</button>
+<button onclick="addtodisplay('5')">5</button>
+<button onclick="addtodisplay('6')">6</button>
+<button onclick="addtodisplay('-')">-</button>
+</div></br>
+<div>
+<button onclick="addtodisplay('1')">1</button>
+<button onclick="addtodisplay('2')">2</button>
+<button onclick="addtodisplay('3')">3</button>
+<button onclick="addtodisplay('+')">+</button>
+</div></br>
+<div>
+<button onclick="addtodisplay('00')">00</button>
+<button onclick="addtodisplay('0')">0</button>
+<button onclick="addtodisplay('.')"><h3>.</h3></button>
+<button onclick="calculate()">=</button>
+</div></br>
+</div>
+<script>
+let displayvalue='';
+
+function addtodisplay(value){
+    displayvalue=document.getElementById('display').value;
+if(value=='X')
+{
+    if(displayvalue.length===1)
+    {
+       displayvalue=''; 
+    }else{
+displayvalue=displayvalue.substring(0,displayvalue.length-1);}
+}
+else{
+displayvalue=displayvalue+value;}
+document.getElementById('display').value=displayvalue;
+}
+
+function calculate()
+{
+displayvalue=document.getElementById('display').value;
+displayvalue=eval(displayvalue);
+document.getElementById('display').value=displayvalue;
+}
+
+function cleardisplay()
+{
+displayvalue=document.getElementById('display').value;
+displayvalue='';
+document.getElementById('display').value=displayvalue;
+}
+
+</script>
+</body>
+</html>
